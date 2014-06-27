@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = '1.8'
+
+mainClassName = 'com.benwaffle.Ricin'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'com.google.code.gson:gson:2.2.4'
+	compile fileTree(dir: 'lib', includes: ['*.jar'])
+}
+
+run {
+}
