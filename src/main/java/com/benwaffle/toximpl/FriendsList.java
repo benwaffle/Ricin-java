@@ -49,7 +49,9 @@ public class FriendsList implements FriendList<Friend> {
 	}
 
 	public Friend getById(String id) {
-		return stream().filter(f -> f.getId().equals(id)).findFirst()
+		return stream()
+				.filter(f -> f.getId().equals(id))
+				.findFirst()
 				.orElse(null);
 	}
 
