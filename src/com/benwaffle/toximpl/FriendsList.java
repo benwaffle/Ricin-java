@@ -7,13 +7,26 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
+/**
+ * A group of Tox friends
+ * @author Ben
+ */
 public class FriendsList implements FriendList<Friend> {
+	/**
+	 * A mapping of (friend number -> Friend object)
+	 */
 	private HashMap<Integer, Friend> friends;
 
+	/**
+	 * Gets the friends from the HashMap as a stream for easy processing
+	 */
 	private Stream<Friend> stream() {
 		return friends.values().stream();
 	}
 
+	/**
+	 * Just instantiate the HashMap
+	 */
 	public FriendsList() {
 		friends = new HashMap<>();
 	}
@@ -47,14 +60,14 @@ public class FriendsList implements FriendList<Friend> {
 	public Friend getByFriendNumber(int friendNum) {
 		return friends.get(friendNum);
 	}
-
+	
 	public Friend getById(String id) {
 		return stream()
 				.filter(f -> f.getId().equals(id))
 				.findFirst()
-				.orElse(null);
+				.orElse(null); // findFirst() returns an Optional<Friend>
 	}
-
+	
 	public List<Friend> getByName(String name, boolean ignorecase) {
 		return stream()
 				.filter(f -> {

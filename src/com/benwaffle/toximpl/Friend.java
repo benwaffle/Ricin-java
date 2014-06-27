@@ -3,6 +3,17 @@ package com.benwaffle.toximpl;
 import im.tox.jtoxcore.ToxFriend;
 import im.tox.jtoxcore.ToxUserStatus;
 
+/**
+ * Represents a Tox friend, including:
+ * - name
+ * - status message (custom string)
+ * - status (none/away/busy/invalid)
+ * - friend number (for tox core)
+ * - online (boolean)
+ * - typing (boolean)
+ * 
+ * @author Ben
+ */
 public class Friend implements ToxFriend {
 	private int friendnumber;
 	private String id, name, statusMessage;
