@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.3210702341137124" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <items>
+      <SplitPane dividerPositions="0.2537688442211055" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TextField layoutX="14.0" layoutY="52.0" text="Tox Status" />
+                  <MenuButton alignment="CENTER" contentDisplay="CENTER" layoutX="142.0" layoutY="14.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="29.0" prefWidth="0.0">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Copy Tox ID" />
+                      <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                  </MenuButton>
+                  <TextField layoutX="14.0" layoutY="14.0" prefHeight="29.0" prefWidth="138.0" text="Tox User" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="249.0" prefWidth="188.0">
+               <children>
+                  <ListView AnchorPane.bottomAnchor="-107.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-60.0" AnchorPane.topAnchor="0.0" />
+                  <HBox layoutY="264.0" prefHeight="29.0" prefWidth="188.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="a" />
+                        <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="b" />
+                        <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="c" />
+                        <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="d" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="114.0" />
+  </items>
+</SplitPane>
