@@ -1,38 +1,18 @@
 package com.benwaffle;
 
+import com.benwaffle.model.Friend;
+import com.benwaffle.model.FriendsList;
+import com.benwaffle.view.UIController;
+import com.benwaffle.util.NetJSON;
 import im.tox.jtoxcore.*;
 import im.tox.jtoxcore.callbacks.CallbackHandler;
-import im.tox.jtoxcore.callbacks.OnFriendRequestCallback;
 
-import java.io.*;
-import java.net.URL;
-import java.security.cert.*;
-
-import javax.net.ssl.*;
 import javax.swing.JOptionPane;
 
 import com.benwaffle.Servers.Server;
-import com.benwaffle.toximpl.*;
-import com.google.gson.Gson;
 
 public class Test {
-	static Servers getServersFromJson() throws Exception {
-		HttpsURLConnection conn = (HttpsURLConnection)
-				new URL("https://kirara.ca/poison/Nodefile.json").openConnection();
-
-		SSLContext ctx = SSLContext.getInstance("SSL");
-		ctx.init(null, new TrustManager[] { new X509TrustManager() {
-			public X509Certificate[] getAcceptedIssuers() {return null;}
-			public void checkServerTrusted(X509Certificate[] a, String b) throws CertificateException {}
-			public void checkClientTrusted(X509Certificate[] a, String b) throws CertificateException {}
-		}}, null);
-		conn.setSSLSocketFactory(ctx.getSocketFactory());
-
-		InputStreamReader read = new InputStreamReader(conn.getInputStream());
-		return (Servers) new Gson().fromJson(read, Servers.class);
-	}
-
-	private static FriendList<Friend> friends = new FriendsList(); 
+	private static FriendList<Friend> friends = new FriendsList();
 	private static CallbackHandler<Friend> cbHandler = new CallbackHandler<>(friends);
 	private static JTox<Friend> api;
 	
@@ -55,13 +35,11 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
-		Server s;
-		try {
-			s = getServersFromJson().servers[0];
-		} catch (Exception e) {
-			System.err.println("Error: failed to get bootstrap servers");
-			return;
-		}
+		Server s = NetJSON.getServersFromNet().get(0);
+		if (s == null) {
+            //error
+            System.exit(1);
+        }
 		
 		try {
 			api = new JTox<>(friends, cbHandler);
@@ -78,8 +56,8 @@ public class Test {
 		}
 		
 		registerCallbacks();
-		
-		new Thread(() -> {
+
+        new Thread(() -> {
 			try {
 				System.out.println("my address: " + api.getAddress());
 			} catch (ToxException e1) {
@@ -94,5 +72,8 @@ public class Test {
 				}
 			}
 		}).start();
+
+        UIController.setApi(api);
+        Ricin.main(args);
 	}
 }

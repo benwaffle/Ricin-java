@@ -1,4 +1,4 @@
-package com.benwaffle.toximpl;
+package com.benwaffle.model;
 
 import im.tox.jtoxcore.*;
 

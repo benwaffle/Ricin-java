@@ -1,9 +1,11 @@
-bin
-.classpath
-.project
-.settings
+build
+.gradle
 
+*.iml
+*.eml
 .idea
+.settings
+.project
+.classpath
+bin
 target
-
-*.class

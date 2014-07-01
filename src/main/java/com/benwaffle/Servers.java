@@ -15,6 +15,10 @@ public class Servers {
 		}
 	}
 
+    public Server get(int i){
+        return i < servers.length && i >= 0 ? servers[i] : null;
+    }
+
 	public String toString() {
 		return Arrays.toString(servers);
 	}

@@ -3,7 +3,7 @@ apply plugin: 'application'
 
 sourceCompatibility = '1.8'
 
-mainClassName = 'com.benwaffle.Ricin'
+mainClassName = 'com.benwaffle.Test'
 
 repositories {
 	mavenCentral()
@@ -11,8 +11,10 @@ repositories {
 
 dependencies {
 	compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.controlsfx:controlsfx:8.0.6'
 	compile fileTree(dir: 'lib', includes: ['*.jar'])
 }
 
 run {
+    systemProperty "java.library.path", "lib/native"
 }
