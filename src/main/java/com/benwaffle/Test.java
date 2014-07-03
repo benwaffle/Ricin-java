@@ -2,7 +2,7 @@ package com.benwaffle;
 
 import com.benwaffle.model.Friend;
 import com.benwaffle.model.FriendsList;
-import com.benwaffle.view.UIController;
+import com.benwaffle.view.RicinController;
 import com.benwaffle.util.NetJSON;
 import im.tox.jtoxcore.*;
 import im.tox.jtoxcore.callbacks.CallbackHandler;
@@ -73,7 +73,7 @@ public class Test {
 			}
 		}).start();
 
-        UIController.setApi(api);
+        RicinController.setApi(api);
         Ricin.main(args);
 	}
 }

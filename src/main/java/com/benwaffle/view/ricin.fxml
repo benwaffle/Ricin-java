@@ -1,75 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox fx:controller="com.benwaffle.view.UIController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benwaffle.view.RicinController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="200.0">
-         <children>
-            <HBox prefHeight="35.0" prefWidth="234.0">
+      <SplitPane dividerPositions="0.3" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <VBox maxWidth="200.0" minWidth="100.0" prefHeight="200.0" prefWidth="200.0" SplitPane.resizableWithParent="false">
                <children>
-                  <Label text="Name:" />
-                  <TextField fx:id="nameTextfield" onInputMethodTextChanged="#nameTextChanged" prefHeight="29.0" prefWidth="158.0" />
+                  <Pane minHeight="45.0" prefHeight="45.0" prefWidth="175.0" VBox.vgrow="NEVER">
+                     <children>
+                        <TextField layoutX="-9.0" layoutY="-6.0" prefHeight="37.0" prefWidth="168.0" text="Tox User" visible="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField layoutX="-4.0" layoutY="20.0" text="Tox Status" visible="false" />
+                        <Label layoutX="3.0" text="Tox User">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="4.0" layoutY="25.0" text="Tox Status" />
+                     </children></Pane>
+                  <ListView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <HBox prefHeight="48.0" prefWidth="174.0">
+                     <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="1000.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="groupchatButton" mnemonicParsing="false" onAction="#handleGroupchatButton" prefHeight="1000.0" prefWidth="1000.0" />
+                        <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettingsButton" prefHeight="1000.0" prefWidth="1000.0" />
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox prefHeight="35.0" prefWidth="234.0">
-               <children>
-                  <Label text="Status:" />
-                  <TextField fx:id="statusTextfield" onInputMethodTextChanged="#statusTextChanged" prefHeight="29.0" prefWidth="157.0" />
-               </children>
-            </HBox>
-            <Accordion prefHeight="430.0" prefWidth="202.0">
-              <panes>
-                <TitledPane animated="false" prefHeight="285.0" prefWidth="202.0" text="Friends">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ListView fx:id="friendsLV" layoutY="-2.0" prefHeight="328.0" prefWidth="202.0" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Groupchats">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ListView fx:id="groupchatsLV" prefHeight="328.0" prefWidth="200.0" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" prefHeight="531.0" prefWidth="202.0" text="Friend Requests">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ListView fx:id="frqLV" layoutY="-2.0" prefHeight="325.0" prefWidth="200.0" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-              </panes>
-            </Accordion>
-            <HBox prefHeight="52.0" prefWidth="202.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#addClicked" text="add" />
-                  <Button mnemonicParsing="false" onAction="#newGroupchatClicked" text="groupchat" />
-                  <Button mnemonicParsing="false" onAction="#copyIDClicked" text="copy ID" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox prefHeight="505.0" prefWidth="549.0">
-         <children>
-            <ListView prefHeight="513.0" prefWidth="539.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextArea fx:id="messageTextfield" prefHeight="66.0" prefWidth="467.0" />
-                  <Button mnemonicParsing="false" onAction="#sendClicked" prefHeight="100.0" prefWidth="73.0" text="send" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
    </children>
-</HBox>
+</AnchorPane>
