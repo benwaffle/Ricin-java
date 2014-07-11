@@ -26,7 +26,8 @@ public class Friend implements ToxFriend {
 	
 	@Override
 	public String toString() {
-		return "Friend [name=" + name + ", id=" + id + ", status=" + statusMessage + ", online=" + online + "]";
+		return "Friend [name=" + name + "]";
+		    //, id=" + id + ", status=" + statusMessage + ", online=" + online + "]";
 	}
 	
 	public int getFriendnumber() {

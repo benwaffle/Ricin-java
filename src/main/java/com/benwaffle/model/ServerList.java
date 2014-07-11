@@ -1,8 +1,8 @@
-package com.benwaffle;
+package com.benwaffle.model;
 
 import java.util.Arrays;
 
-public class Servers {
+public class ServerList {
 	Server[] servers;
 
 	public static class Server {
@@ -14,6 +14,10 @@ public class Servers {
 					+ ipv4 + ", ipv6=" + ipv6 + ", port=" + port + "]\n";
 		}
 	}
+
+    public int length(){
+        return servers.length;
+    }
 
     public Server get(int i){
         return i < servers.length && i >= 0 ? servers[i] : null;

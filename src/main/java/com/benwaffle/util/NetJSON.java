@@ -1,6 +1,6 @@
 package com.benwaffle.util;
 
-import com.benwaffle.Servers;
+import com.benwaffle.model.ServerList;
 import com.google.gson.Gson;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -17,14 +17,14 @@ import java.security.cert.X509Certificate;
 public class NetJSON {
     private final static String BOOTSTRAP_SERVERS_URL = "https://kirara.ca/poison/Nodefile.json";
 
-    public static Servers getServersFromNet() {
+    public static ServerList getServersFromNet() {
         try {
             HttpsURLConnection conn = // open connection
                     (HttpsURLConnection) new URL("https://kirara.ca/poison/Nodefile.json").openConnection();
 
             conn.setSSLSocketFactory(getDummySSLCtx().getSocketFactory()); // accept any SSL cert
             InputStreamReader read = new InputStreamReader(conn.getInputStream()); // reader for connection
-            return (Servers) new Gson().fromJson(read, Servers.class); // parse json to Servers object
+            return (ServerList) new Gson().fromJson(read, ServerList.class); // parse json to ServerList object
         } catch (IOException | GeneralSecurityException e) {
             return null; // error? return null
         }

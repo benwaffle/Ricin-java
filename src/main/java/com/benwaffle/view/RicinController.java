@@ -34,7 +34,6 @@ public class RicinController {
 
     // get names from https://fortawesome.github.io/Font-Awesome/icons/
     @FXML private void initialize() {
-        System.out.println(Ricin.fontAwesome.getGlyphs());
         addButton.setGraphic(Ricin.fontAwesome.create("PLUS"));
         groupchatButton.setGraphic(Ricin.fontAwesome.create("GROUP"));
         settingsButton.setGraphic(Ricin.fontAwesome.create("GEAR"));
