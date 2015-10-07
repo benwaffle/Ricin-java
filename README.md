@@ -1,3 +1,6 @@
+[screw this, i'm writing it in vala](https://github.com/RicinApp)
+
+
 Ricin
 =====
 
